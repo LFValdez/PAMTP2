@@ -9,13 +9,17 @@ package py.edu.columbia.pamtp2;
 
         import java.util.ArrayList;
 
+        import clases.Usuario;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static Button btIniciar;
     private static Button btRegistrar;
-    private static  ArrayList<Usuario> usuarios;
 
+    private static Intent intent;
+
+    private static  ArrayList<Usuario> usuarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         usuarios = new ArrayList<>();
-        //Log.i("ON CREATE", MainActivity.class.getName());
+
         btIniciar = findViewById(R.id.btIniciar);
         btRegistrar = findViewById(R.id.btRegistrar);
 
@@ -31,26 +35,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btIniciar.setOnClickListener(this);
     }
 
+
+
     @Override
     public void onClick(View view) {
 
         if (view.getId() == btRegistrar.getId()){
-            registrarse ();
+            registrar ();
         } else {
-
             iniciarSesion ();
         }
     }
 
     private void iniciarSesion() {
-        Intent intent = new Intent(this, InicioSesion.class);
+        intent = new Intent(this, InicioSesion.class);
         intent.putExtra("listaUsuario", usuarios);
         startActivity(intent);
     }
 
-    private void registrarse() {
-
-        Intent intent = new Intent(this, Registro.class);
+    private void registrar() {
+        intent = new Intent(this, Registro.class);
         startActivityForResult(intent,1);
     }
 
@@ -59,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1){
+
             if (resultCode == RESULT_CANCELED){
+
                 Toast toast = Toast.makeText(this,"Registro Cancelado",Toast.LENGTH_SHORT);
                 toast.show();
 

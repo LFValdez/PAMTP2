@@ -1,4 +1,4 @@
-package py.edu.columbia.pamtp2;
+package clases;
 
 import java.io.Serializable;
 

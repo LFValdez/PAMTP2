@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import clases.Usuario;
+
 public class InicioSesion extends AppCompatActivity implements View.OnClickListener {
 
     private static EditText etUsuario;
@@ -64,9 +66,11 @@ public class InicioSesion extends AppCompatActivity implements View.OnClickListe
             }
 
             if (flag.equals(Boolean.TRUE)){
+
                 Log.i("LOG_IF_TRUE", String.valueOf(flag.equals(Boolean.TRUE)));
                 Toast toast = Toast.makeText(this,"Inicio de sesión exitoso",Toast.LENGTH_SHORT);
                 toast.show();
+
             } else {
 
                 Toast toast = Toast.makeText(this,"Usuario y/o contraseña incorrectos.\n"
