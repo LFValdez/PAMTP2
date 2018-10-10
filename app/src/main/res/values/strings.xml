@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PAMTP2</string>
+    <string name="inicio_name">Inicio</string>
+    <string name="iniciar_sesion_name">Iniciar sesión</string>
+    <string name="registro_name">Registro</string>
+
 </resources>
