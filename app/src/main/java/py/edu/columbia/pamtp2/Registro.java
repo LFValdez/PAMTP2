@@ -23,6 +23,8 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
     private static Intent intent;
 
+    String [] categoria = {"Docente","Estudiante"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +38,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         btAceptar = findViewById(R.id.btAceptar);
 
         spnCategoria = findViewById(R.id.spnCategoria);
-        String [] categoria = {"Docente","Estudiante"};
         spnCategoria.setAdapter(new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item, categoria));
 
         btCancelar.setOnClickListener(this);

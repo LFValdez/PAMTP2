@@ -22,6 +22,8 @@ public class InicioSesion extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList <Usuario> usuarios;
 
+    private static Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +50,7 @@ public class InicioSesion extends AppCompatActivity implements View.OnClickListe
             String user = etUsuario.getText().toString();
             String pass = etContrasena.getText().toString();
 
-            Log.i("LOG_USER", user);
-            Log.i("LOG_CONTRASENA", pass);
-            Log.i("LOG_BOOLEAN", flag.toString());
-
-            Intent intent = getIntent();
+            intent = getIntent();
             usuarios = (ArrayList<Usuario>) intent.getSerializableExtra("listaUsuario");
 
             for (Usuario u : usuarios){
@@ -60,21 +58,19 @@ public class InicioSesion extends AppCompatActivity implements View.OnClickListe
                 if (u.getUsuario().equals(user) && u.getContrasena().equals(pass)){
 
                     flag = Boolean.TRUE;
-                    Log.i("LOG_FOR", flag.toString());
                     break;
                 }
             }
 
             if (flag.equals(Boolean.TRUE)){
 
-                Log.i("LOG_IF_TRUE", String.valueOf(flag.equals(Boolean.TRUE)));
-                Toast toast = Toast.makeText(this,"Inicio de sesión exitoso",Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this,"Inicio de sesión exitoso.",Toast.LENGTH_SHORT);
                 toast.show();
 
             } else {
 
                 Toast toast = Toast.makeText(this,"Usuario y/o contraseña incorrectos.\n"
-                        +"Vuelva a intentarlo",Toast.LENGTH_SHORT);
+                        +"Vuelva a intentarlo.",Toast.LENGTH_SHORT);
                 toast.show();
             }
         }
